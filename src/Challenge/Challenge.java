@@ -12,10 +12,10 @@ public class Challenge {
 		
 		/*=====RECEBE OS PARÂMETROS DO TABULEIRO=====*/
 		Scanner entrada = new Scanner (System.in);
-		System.out.println("Qual será a largura do tabuleiro?");
-		int largura = entrada.nextInt();
 		System.out.println("Qual será a altura do tabuleiro?");
 		int altura = entrada.nextInt();
+		System.out.println("Qual será a largura do tabuleiro?");
+		int largura = entrada.nextInt();
 		
 		/*-----Devolve o tabuleiro ao usuário-----*/
 		int[][] tabuleiro = new int[altura][largura];
@@ -83,6 +83,9 @@ public class Challenge {
 					qtdPecasCriadas ++;
 				} else {
 					System.out.println("O sistema pôde criar somente " + qtdPecasCriadas + " peças.");
+					if(qtdPecasCriadas == 0 && listaDePecas.contains(novaPeca)) {
+						listaDePecas.remove(novaPeca);
+					}
 					areaTotalPecas -= (pecaLargura * pecaAltura);
 					erro = 1;
 					break;	
